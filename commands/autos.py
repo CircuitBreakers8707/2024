@@ -7,21 +7,21 @@
 import commands2
 import constants
 
-# from subsystems.can_drivesubsystem import DriveSubsystem
-from subsystems.pwm_drivesubsystem import DriveSubsystem
+from subsystems.can_drivesubsystem import DriveSubsystem
+from subsystems.can_launchersubsystem import LauncherSubsystem
+# from subsystems.pwm_drivesubsystem import DriveSubsystem
 
 
 class Autos(commands2.Command):
-    def __init__(self, drive: DriveSubsystem) -> None:
+    def __init__(self, drive: DriveSubsystem, launcher: LauncherSubsystem) -> None:
         super().__init__()
         self.drive = drive
+        self.launcher = launcher
         self.addRequirements(drive)
 
     def exampleAuto(self) -> commands2.Command:
         return (
-            commands2.cmd.run(lambda: self.drive.arcadeDrive(-0.5, 0), self.drive)
-            .withTimeout(1.0)
-            .andThen(
-                commands2.cmd.run(lambda: self.drive.arcadeDrive(0, 0), self.drive)
+            self.drive.arcadeDrive(0.25, 0)
+            
             )
-        )
+        

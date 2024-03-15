@@ -59,14 +59,14 @@ class RobotContainer:
         )
 
     def configureButtonBindings(self):
-        self.operatorController.a().whileTrue(
-            PrepareLaunch(self.launcher)
-            .withTimeout(constants.kLauncherDelay)
-            .andThen(LaunchNote(self.launcher))
+        self.driverController.a().whileTrue(
+            self.launcher.setWheelsCommand(-1,0)
+            .withTimeout(0.9)
+            .andThen(self.launcher.setWheelsCommand(constants.kLauncherSpeed,constants.kLaunchFeederSpeed))
             .handleInterrupt(lambda: self.launcher.stop())
         )
 
-        self.operatorController.leftBumper().whileTrue(self.launcher.getIntakeCommand())
+        self.driverController.leftBumper().whileTrue(self.launcher.getIntakeCommand())
 
     def getAutonomousCommand(self) -> commands2.Command:
         return Autos.exampleAuto(self.drive)

@@ -6,7 +6,7 @@
 
 import commands2
 import constants
-from subsystems.pwm_launchersubsystem import LauncherSubsystem
+from subsystems.can_launchersubsystem import LauncherSubsystem
 
 
 class LaunchNote(commands2.Command):

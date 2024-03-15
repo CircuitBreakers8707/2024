@@ -7,8 +7,8 @@
 import commands2
 import constants
 
-# from subsystems.can_launchersubsystem import LauncherSubsystem
-from subsystems.pwm_launchersubsystem import LauncherSubsystem
+from subsystems.can_launchersubsystem import LauncherSubsystem
+# from subsystems.pwm_launchersubsystem import LauncherSubsystem
 
 
 class PrepareLaunch(commands2.Command):

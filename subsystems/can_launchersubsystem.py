@@ -36,6 +36,17 @@ class LauncherSubsystem(commands2.Subsystem):
             lambda: self.stop(),
             self,
         )
+    
+    def setWheelsCommand(self,launch,feed) -> commands2.Command:
+        """The startEnd helper method takes a method to call when the command is initialized and one to
+        call when it ends"""
+        return commands2.cmd.startEnd(
+            # When the command is initialized, set the wheels to the intake speed values
+            lambda: self.setWheels(launch, feed),
+            # When the command stops, stop the wheels
+            lambda: self.stop(),
+            self,
+        )
 
     def setWheels(self, launch: float, feed: float) -> None:
         """A method to set both wheels so we have a single method to use as a lambda for our command factory"""
