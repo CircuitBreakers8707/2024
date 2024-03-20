@@ -10,6 +10,7 @@ import wpilib.drive
 import rev
 
 import constants
+import math
 
 
 class DriveSubsystem(commands2.Subsystem):
@@ -43,7 +44,7 @@ class DriveSubsystem(commands2.Subsystem):
         # The robot's drive
         self.drive = wpilib.drive.DifferentialDrive(
             self.leftDrive,
-            self.rightDrive,
+            self.rightDrive
         )
 
     def arcadeDrive(self, fwd: float, rot: float) -> None:
@@ -53,4 +54,4 @@ class DriveSubsystem(commands2.Subsystem):
         :param fwd: the commanded forward movement
         :param rot: the commanded rotation
         """
-        self.drive.arcadeDrive(fwd, -0.5 * rot)
+        self.drive.arcadeDrive(0.75 * fwd, -0.5 * rot)

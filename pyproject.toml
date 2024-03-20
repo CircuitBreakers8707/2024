@@ -25,6 +25,7 @@ robotpy_extras = [
      #"romi",
      #"sim",
      #"xrp",
+     "math",
 ]
 
 # Other pip packages to install

@@ -21,7 +21,7 @@ class Autos(commands2.Command):
 
     def exampleAuto(self) -> commands2.Command:
         return (
-            self.drive.arcadeDrive(0.25, 0)
+    
             
             )
         
